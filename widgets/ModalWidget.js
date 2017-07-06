@@ -26,7 +26,7 @@ module.exports = React.createClass({
       disclosure: true,
       cancelable: false,
       displayValue: '',
-      onClose: () => {}
+      onClose: () => { }
     };
   },
 
@@ -73,9 +73,10 @@ module.exports = React.createClass({
 
     var route = {
       onClose: _self.onClose,
+      onChange: _self._onChange,
       renderScene(navigator) {
         // not passing onFocus/onBlur of the current scene to the new scene
-        var {onFocus, onBlur, ...others} = _self.props;
+        var { onFocus, onBlur, ...others } = _self.props;
 
         return (
           <GiftedFormModal
@@ -89,6 +90,9 @@ module.exports = React.createClass({
       },
       getTitle() {
         return _self.props.title || '';
+      },
+      getDisplayValue() {
+        return _self.props.displayValue || ''
       },
       configureScene() {
         var sceneConfig = Navigator.SceneConfigs.FloatFromBottom;
@@ -190,7 +194,7 @@ module.exports = React.createClass({
     }
 
     if (navigator !== null) {
-      navigator.pop();
+      navigator();
     }
 
     this.props.onClose && this.props.onClose();
@@ -292,7 +296,7 @@ module.exports = React.createClass({
     },
     rowContainer: {
       backgroundColor: '#FFF',
-      borderBottomWidth: 1 / PixelRatio.get(),
+      borderBottomWidth: 1,
       borderColor: '#c8c7cc',
     },
     underlayColor: '#c7c7cc',
@@ -304,14 +308,14 @@ module.exports = React.createClass({
     disclosure: {
       // transform: [{rotate: '90deg'}],
       marginLeft: 10,
-      marginRight: 10,
+      // marginRight: 10,
       width: 11,
     },
     modalTitle: {
       flex: 1,
       fontSize: 15,
       color: '#000',
-      paddingLeft: 10,
+      // paddingLeft: 10,
     },
     alignRight: {
       alignItems: 'flex-end',

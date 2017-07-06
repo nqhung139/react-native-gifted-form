@@ -66,7 +66,7 @@ module.exports = {
       }
       // @todo don't change inset if external keyboard connected
       this.refs.container.setNativeProps({
-        contentInset: {top: 0, bottom: keyboardHeight, left: 0, right: 0},
+        contentInset: { top: 0, bottom: keyboardHeight, left: 0, right: 0 },
       });
     }
   },
@@ -75,7 +75,7 @@ module.exports = {
     if (Platform.OS !== 'android' && this.props.scrollEnabled === true) {
       // @todo dont change inset if external keyboard connected
       this.refs.container.setNativeProps({
-        contentInset: {top: 0, bottom: 0, left: 0, right: 0},
+        contentInset: { top: 0, bottom: 0, left: 0, right: 0 },
       });
     }
   },
@@ -158,10 +158,12 @@ module.exports = {
 
 var styles = {
   containerView: {
+    width: '100%',
     backgroundColor: '#eee',
     flex: 1,
   },
   modalView: {
+    width: '100%',
     backgroundColor: '#eee',
     flex: 1,
   },
